@@ -22,7 +22,9 @@ const guestbook = {
         name,
         email,
         comment,
-      }),
+      }).done(function(result) {
+      console.log('Result:', result);
+      });,
       dataType: 'json',
     });
   }
@@ -40,7 +42,7 @@ const guestbook = {
   function loadEntries() {
     console.log('Loading entries...');
     $('#entries').html('Loading entries...');
-    guestbook.get().success(function(result) {
+    guestbook.get().done(function(result) {
       console.log('Result:', result);
       if (!result.entries) {
         return;
