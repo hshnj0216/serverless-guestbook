@@ -1,13 +1,15 @@
 /**
  * Web application
  */
-const apiUrl = '';
+const apiUrl = 'https://jp-tok.functions.appdomain.cloud/api/v1/web/79ac4b77-9472-4631-a518-3dcc22a0e1a2/guestbook/';
+const getEndpoint = 'read-guestbook-entries-sequence';
+const addEndpoint = 'save-guestbook-entry-sequence';
 const guestbook = {
   // retrieve the existing guestbook entries
   get() {
     return $.ajax({
       type: 'GET',
-      url: `${apiUrl}/entries`,
+      url: `${apiUrl}${getEndpoint}`,
       dataType: 'json'
     });
   },
@@ -16,7 +18,7 @@ const guestbook = {
     console.log('Sending', name, email, comment)
     return $.ajax({
       type: 'PUT',
-      url: `${apiUrl}/entries`,
+      url: `${apiUrl}${addEndpoint}`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         name,
