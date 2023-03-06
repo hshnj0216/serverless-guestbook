@@ -22,9 +22,7 @@ const guestbook = {
         name,
         email,
         comment,
-      }).done(function(result) {
-      console.log('Result:', result);
-      });,
+      }),
       dataType: 'json',
     });
   }
